@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+zuul:
+  routes:
+    user-service-api:
+      path: /user-api/**
+      serviceId: CONSUME-SERVICE
+    user-service-api2:
+      path: /select-api/**
+      serviceId: COMPUTE-SERVICE
